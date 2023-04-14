@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  labels:
-   app: udagram-api-user
- name: udagram-api-user
+   app: udagram-api-feed
+ name: udagram-api-feed
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-api-user
+      app: udagram-api-feed
   template:
     metadata:
       labels:
-        app: udagram-api-user
+        app: udagram-api-feed
     spec:
       containers:
-      - image: thienntn1/udagram-api-user
-        name: udagram-api-user
+      - image: thienntn1/udagram-api-feed
+        name: udagram-api-feed
         imagePullPolicy: Always
         resources:
           requests:
@@ -74,4 +74,4 @@ spec:
       volumes:
       - name: secret-volume
         secret:
-          secretName: aws-mysecret
+          secretName: aws-secret
